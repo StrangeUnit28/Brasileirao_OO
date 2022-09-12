@@ -2,11 +2,9 @@ package view;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.util.ArrayList;
 
 import javax.swing.*;
 import controller.*;
-import model.Jogador;
 
 /**
  * Menu inicial da aplicação. Permite navegar entre as opções/operações possíveis em toda a aplicação
@@ -108,10 +106,10 @@ public class MenuPrincipal implements ActionListener{
 			tabelaArt.updateUI();
 		}
 		if (src == jogador) {
-			new TelaPessoa().showJogadores(dados, 1);
+			new TelaPessoa().showPessoa(dados, 1);
 		}
 		if(src == tecnico) {
-			new TelaPessoa().showTecnicos(dados, 2);
+			new TelaPessoa().showPessoa(dados, 2);
 		}
 		if(src == rodadas) {
 			new TelaRodadas().showRodadas(dados);

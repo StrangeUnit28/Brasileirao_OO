@@ -200,8 +200,8 @@ public class DadosController {
 	}
 	/**
 	 * Método responsável por transformar os dados ArrayList<Jogador> em String[]
-	 * @param ArrayList<Jogador> contendo os dados dos jogadores
-	 * @return String[] Contendo os dados dos jogadores 
+	 * @param ArrayList<Jogador> contendo objetos Jogadoor
+	 * @return String[] Contendo os dados dos objetos Jogador 
 	 */
 	public String[] transformarDadosJogadores(ArrayList<Jogador> jogador) {
 		String[] listaJogadores = new String[jogador.size()]; 
@@ -209,6 +209,19 @@ public class DadosController {
 			listaJogadores[n] = jogador.get(n).toString(); 
 		}
 		return listaJogadores;
+	}
+	
+	/**
+	 * Método responsável por transformar os dados ArrayList<Tecnico> em String[]
+	 * @param tecnico ArrayList<Tecnico> contendo objetos Tecnico
+	 * @return String[] Contendo os dados dos objetos Tecnico
+	 */
+	public String[] transformarDadosTecnico(ArrayList<Tecnico> tecnico) {
+		String[] listatecnicos = new String[tecnico.size()]; 
+		for (int n=0; n<tecnico.size(); n++) {
+			listatecnicos[n] = tecnico.get(n).toString(); 
+		}
+		return listatecnicos;
 	}
 	
 	public ArrayList<Jogador> getJogadoresAtleticoMadrid(){

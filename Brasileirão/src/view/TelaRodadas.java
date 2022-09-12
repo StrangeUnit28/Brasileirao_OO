@@ -5,6 +5,11 @@ import java.awt.*;
 import java.awt.event.*;
 import controller.*;
 
+/**
+ * Classe responsável por listar os resultados dos confrontos das respectivas rodadas
+ * @author Rafael Bosi
+ *@version 1.0 (set 2022)
+ */
 public class TelaRodadas implements ActionListener {
 	private JFrame rodada;
 	private JLabel titulo; 
@@ -12,17 +17,19 @@ public class TelaRodadas implements ActionListener {
 	private String[] listaResultados;
 	private JList<String> resultados;
 	private JButton mostrar;
-	DadosController dados = new DadosController();
+	private static DadosController dados = new DadosController();
 	TemporadaController temporada = new TemporadaController();
 	int n;
-	
+	/**
+	 * Método responsável por gerar a TelaRodadas
+	 * @param d Objeto da classe DadosController
+	 */
 	public void showRodadas(DadosController d) {
 		dados = d;
 		
 		rodada = new JFrame("Resultado das Rodada");
-		titulo = new JLabel("Digite o número da Rodada\n" +
-		"para obter os confrontos ocorridos");
-		numRodada = new JTextField("Insira o número da rodada");
+		titulo = new JLabel("Digite o número da Rodada");
+		numRodada = new JTextField();
 		listaResultados = temporada.listarJogosDaRodada(temporada.simularTemporada(dados), n);
 		resultados = new JList<String>(listaResultados);
 		mostrar = new JButton("Mostrar Confrontos da Rodada");
@@ -30,19 +37,18 @@ public class TelaRodadas implements ActionListener {
 		resultados.setLayoutOrientation(JList.VERTICAL);
 		
 		titulo.setFont(new Font("Arial", Font.BOLD, 20));
-		titulo.setBounds(50, 10, 500, 30);
-		numRodada.setBounds(180, 100, 200, 30);
-		resultados.setBounds(175, 140, 200, 100);
-		mostrar.setBounds(175, 300, 300, 30);
+		titulo.setBounds(180, 10, 500, 30);
+		numRodada.setBounds(300, 40, 30, 30);
+		resultados.setBounds(190, 80, 265, 380);
+		mostrar.setBounds(220, 470, 200, 30);
 		
 		rodada.setLayout(null);
-		
 		rodada.add(titulo);
 		rodada.add(numRodada);
 		rodada.add(resultados);
 		rodada.add(mostrar);
 		
-		rodada.setSize(600, 400);
+		rodada.setSize(600, 550);
 		rodada.setLocationRelativeTo(null);
 		rodada.setVisible(true);
 		
@@ -50,11 +56,15 @@ public class TelaRodadas implements ActionListener {
 		mostrar.addActionListener(this);
 	}
 	
+	/**
+	 * Reage a eventos de clique nos botões declarados. Abre um submenu específico dependendo do botão clicado
+	 */
 	public void actionPerformed(ActionEvent e) {
 		Object src = e.getSource();
 		if(src == mostrar) {
-			if (Integer.parseInt(numRodada.getText()) > 0 && Integer.parseInt(numRodada.getText()) < 20) {
+			if (Integer.parseInt(numRodada.getText()) > 0 && Integer.parseInt(numRodada.getText()) < 21) {
 				n = Integer.parseInt(numRodada.getText());
+				showRodadas(dados);
 			}
 			else {
 				mensagemErro();
@@ -62,6 +72,9 @@ public class TelaRodadas implements ActionListener {
 		}	
 	}
 	
+	/**
+	 * Envia mensagem de erro caso a condição não seja seguida
+	 */
 	public void mensagemErro() {
 		JOptionPane.showMessageDialog(null, "Por favor digite um número entre 1 e 20",
 				null, JOptionPane.INFORMATION_MESSAGE);

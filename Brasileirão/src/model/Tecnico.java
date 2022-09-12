@@ -72,8 +72,8 @@ public class Tecnico extends Pessoa {
 	 */
 	@Override
 	public String toString() {
-		return nome + "[time = " + nomeTime + ", sexo = " + sexo + ", idade = " + idade + ", cbf = " + cbf + ", opcoesTaticas = "
-				+ opcoesTaticas + ", imagemInterna = " + imagemInterna
-				+ ", imagemExterna = " + imagemExterna + "]\n";
+		return nome + " - " + "time: " + nomeTime + " / sexo: " + sexo + 
+				" / idade: " + idade + " / cbf: " + cbf + " / imagemInterna: " + imagemInterna
+				+ " / imagemExterna: " + imagemExterna + "\n";
 	}
 }
