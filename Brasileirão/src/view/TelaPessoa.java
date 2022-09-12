@@ -41,13 +41,13 @@ public class TelaPessoa implements ActionListener, ListSelectionListener {
 			refreshJogador = new JButton("Atualizar");
 			
 			titulo.setFont(new Font("Arial", Font.BOLD, 20));
-			titulo.setBounds(90, 10, 250, 30);
-			listaJogadores.setBounds(20, 50, 350, 120);
+			titulo.setBounds(250, 10, 250, 30);
+			listaJogadores.setBounds(20, 50, 750, 595);
 			listaJogadores.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 			listaJogadores.setVisibleRowCount(10);
 			
-			cadastrarJogador.setBounds(70, 177, 100, 30);
-			refreshJogador.setBounds(200, 177, 100, 30);
+			cadastrarJogador.setBounds(270, 655, 100, 30);
+			refreshJogador.setBounds(390, 655, 100, 30);
 			
 			janela.setLayout(null);
 
@@ -56,7 +56,7 @@ public class TelaPessoa implements ActionListener, ListSelectionListener {
 			janela.add(cadastrarJogador);
 			janela.add(refreshJogador);
 			
-			janela.setSize(400, 250);
+			janela.setSize(800, 800);
 			janela.setVisible(true);
 
 			cadastrarJogador.addActionListener(this);
@@ -73,13 +73,13 @@ public class TelaPessoa implements ActionListener, ListSelectionListener {
 			refreshTecnico = new JButton("Atualizar");
 			
 			titulo.setFont(new Font("Arial", Font.BOLD, 20));
-			titulo.setBounds(90, 10, 250, 30);
+			titulo.setBounds(250, 10, 250, 30);
 			listaTecnicos.setBounds(20, 50, 700, 400);
 			listaTecnicos.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 			listaTecnicos.setVisibleRowCount(10);
 			
-			cadastrarTecnico.setBounds(70, 460, 100, 30);
-			refreshTecnico.setBounds(200, 460, 100, 30);
+			cadastrarTecnico.setBounds(220, 460, 100, 30);
+			refreshTecnico.setBounds(350, 460, 100, 30);
 			
 			janela.setLayout(null);
 
